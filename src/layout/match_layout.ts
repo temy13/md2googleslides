@@ -28,6 +28,7 @@ const layouts: Layout[] = [];
 export default function matchLayout(presentation: SlidesV1.Schema$Presentation, slide: SlideDefinition): GenericLayout {
     // if we have manually set the slide layout get the master from the presentation
     let layoutName: string = undefined;
+    console.log("ml", presentation, slide)
     if (slide.customLayout !== undefined) {
         let layout = presentation.layouts.find(layout => layout.layoutProperties.displayName == slide.customLayout);
         if (layout) {

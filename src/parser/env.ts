@@ -43,6 +43,7 @@ export class Context {
 
     public constructor(css: Stylesheet) {
         this.css = css;
+    // public constructor() {
         this.startSlide();
     }
 

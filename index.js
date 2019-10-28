@@ -12,4 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-module.exports = require('./lib/slide_generator');
+// const path = require('path');
+// const UserAuthorizer = require('./lib/auth').default;
+// const USER_HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+// const STORED_CREDENTIALS_PATH = path.join(USER_HOME, '.md2googleslides', 'credentials.json');
+// const SCOPES = ['https://www.googleapis.com/auth/presentations', 'https://www.googleapis.com/auth/drive'];
+//
+// function authorizeUser(user) {
+//     // Google OAuth2 clients always have a secret, even if the client is an installed
+//     // application/utility such as this.  Of course, in such cases the "secret" is
+//     // actually publicly known; security depends entirely on the secrecy of refresh
+//     // tokens, which effectively become bearer tokens.
+//     const options = {
+//         clientId: '52512509792-pc54t7beete33ifbhk00q3cpcpkmfi7c.apps.googleusercontent.com',
+//         clientSecret: '8g6up8tcVXgF7IO71mCN8Afk',
+//         filePath: STORED_CREDENTIALS_PATH,
+//         prompt: prompt,
+//     };
+//     const auth = new UserAuthorizer(options);
+//     return auth.getUserCredentials(user, SCOPES);
+// }
+
+
+module.exports = {
+  slideGenerator: require('./lib/slide_generator').default,
+}

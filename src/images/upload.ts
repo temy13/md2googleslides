@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Debug from 'debug';
+// import Debug from 'debug';
 import fs from 'fs';
 import request from 'request-promise-native';
 
-const debug = Debug('md2gslides');
+// const debug = Debug('md2gslides');
 
 /**
  * Uploads a local file to temporary storage so it is HTTP/S accessible.
@@ -27,7 +27,7 @@ const debug = Debug('md2gslides');
  * @returns {Promise<string>} URL to hosted image
  */
 async function uploadLocalImage(filePath: string): Promise<string> {
-    debug('Registering file %s', filePath);
+    console.log('Registering file %s', filePath);
     const stream = fs.createReadStream(filePath);
     try {
         let params = {
@@ -39,10 +39,10 @@ async function uploadLocalImage(filePath: string): Promise<string> {
         });
         let responseData = JSON.parse(res);
         if (!responseData.success) {
-            debug('Unable to upload file: %O', responseData);
+            console.log('Unable to upload file: %O', responseData);
             throw res;
         }
-        debug('Temporary link: %s', responseData.link);
+        console.log('Temporary link: %s', responseData.link);
         return responseData.link;
     } finally {
         stream.destroy();

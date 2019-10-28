@@ -518,8 +518,10 @@ fullTokenRules['generated_image'] = (token, context) => {
  */
 export default function extractSlides(markdown: string, stylesheet: string = null): SlideDefinition[] {
     let tokens = parseMarkdown(markdown);
-    let css = parseStyleSheet(stylesheet);
-    let context = new Context(css);
+    // let css = parseStyleSheet(stylesheet);
+    // let context = new Context(css);
+    let context = new Context(stylesheet);
+    // let context = new Context();
     ruleSet = fullTokenRules; // TODO - Make not global
     processTokens(tokens, context);
     context.done();

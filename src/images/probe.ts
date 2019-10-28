@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Debug from 'debug';
+// import Debug from 'debug';
 import probeImageSize from 'probe-image-size';
 import { ImageDefinition } from '../slides';
 import retry from 'promise-retry';
 import fs from 'fs';
-import { URL } from 'url';
+import {Url} from 'url';
 
-const debug = Debug('md2gslides');
+// const debug = Debug('md2gslides');
 const retriableCodes = ['ENOTFOUND', 'ECONNRESET', 'ETIMEDOUT'];
 const probeOptions = { timeout: 5000 };
 const retryOptions = {
@@ -55,9 +55,10 @@ async function probeFile(path): Promise<ImageSize> {
 }
 
 async function probeImage(image: ImageDefinition): Promise<ImageDefinition> {
-    debug('Probing image size: %s', image.url);
+    console.log('Probing image size: %s', image.url);
     let promise;
-    let parsedUrl = new URL(image.url);
+    let parsedUrl = new Url(image.url);
+    // let parsedUrl = URL.parse(image.url)
     if (parsedUrl.protocol == 'file:') {
         promise = probeFile(parsedUrl.pathname);
     } else {

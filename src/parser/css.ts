@@ -50,6 +50,7 @@ function normalizeKeys(css: CssRule): CssRule {
 }
 
 export function parseStyleSheet(stylesheet: string): Stylesheet {
+    console.log("parseStyleSheet", stylesheet)
     return nativeCSS.convert(stylesheet) as Stylesheet;
 }
 

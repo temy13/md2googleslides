@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Debug from 'debug';
+// import Debug from 'debug';
+
 import mathJax from 'mathjax-node';
 import renderSVG from './svg';
 import { ImageDefinition } from '../slides';
 
-const debug = Debug('md2gslides');
+// const debug = Debug('md2gslides');
 let mathJaxInitialized = false;
 
 function lazyInitMathJax(): void {
@@ -57,7 +58,7 @@ function addOrMergeStyles(svg: string, style?: string): string {
 }
 
 async function renderMathJax(image: ImageDefinition): Promise<string> {
-    debug('Generating math image: %O', image);
+    console.log('Generating math image: %O', image);
     lazyInitMathJax();
     let out = await mathJax.typeset({
         math: image.source,

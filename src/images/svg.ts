@@ -11,21 +11,23 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import Debug from 'debug';
-import sharp from 'sharp';
-import tmp from 'tmp-promise';
 
-const debug = Debug('md2gslides');
-tmp.setGracefulCleanup();
+// import Debug from 'debug';
+// import sharp from 'sharp';
+// import tmp from 'tmp-promise';
+//
+// tmp.setGracefulCleanup();
 
 async function renderSVG(image): Promise<string> {
-    debug('Generating SVG', image);
-    let path = await tmp.tmpName({ postfix: '.png' });
+    console.log('Generating SVG', image);
+    // let path = await tmp.tmpName({ postfix: '.png' });
     let buffer = Buffer.from(image.source);
-    await sharp(buffer, { density: 2400 })
-        .png()
-        .toFile(path);
-    return path;
+    // await sharp(buffer, { density: 2400 })
+    //     .png()
+    //     .toFile(path);
+    // return path;
+    return ""
+
 }
 
 export default renderSVG;

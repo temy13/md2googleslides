@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Debug from 'debug';
+// import Debug from 'debug';
+
 import renderSVG from './svg';
 import renderMathJax from './/mathjax';
 import { ImageDefinition } from '../slides';
 
-const debug = Debug('md2gslides');
+// const debug = Debug('md2gslides');
 
 let renderers = {
     svg: renderSVG,
@@ -31,7 +32,7 @@ let renderers = {
  */
 async function maybeGenerateImage(image: ImageDefinition): Promise<ImageDefinition> {
     if (image.url) {
-        debug('Image already rasterized: %s', image.url);
+        console.log('Image already rasterized: %s', image.url);
         return image;
     }
 
@@ -44,7 +45,7 @@ async function maybeGenerateImage(image: ImageDefinition): Promise<ImageDefiniti
     }
     filePath = await renderer(image);
     image.url = 'file://' + filePath;
-    debug('Local image path: %s', image.url);
+    console.log('Local image path: %s', image.url);
     return image;
 }
 
